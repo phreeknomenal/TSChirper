@@ -19,10 +19,10 @@ const App: React.FC<AppProps> = (props: AppProps) => {
 				</div>
 
 				<Switch>
-				<Route exact path="/" component={Home}/>
-				<Route exact path="/add" component={NewChirp} />
-				<Route exact path="/chirp/:id" component={AdminOptions} />
-			</Switch>
+					<Route exact path="/" component={Home}/>
+					<Route exact path="/add" component={NewChirp} />
+					<Route exact path="/chirp/:id" component={AdminOptions} />
+				</Switch>
 			</Router>
 		</>
 	)

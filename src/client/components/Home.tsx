@@ -1,10 +1,22 @@
-import React from "react";
-// import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import NewChirp from "./NewChirp";
 
-export const Home: React.FC<HomeProps> = (props: HomeProps) => {
+const Home: React.FC<HomeProps> = () => {
+    const [chirps, setChirps] = useState([]);
+
+    useEffect(() => {
+        fetch('api/chirps')
+        .then(response => response.json())
+        .then(data => setChirps(data))
+    }, []);
+
     return (
         <>
-            This is the home page
+            <div className="container mt-3">
+                <div className="row">
+                    {chirps.map(chirp => <NewChirp key={chirp.id} chirp={chirp}/>)}
+                </div>
+            </div>
         </>
     )
 
